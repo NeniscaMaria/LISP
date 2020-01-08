@@ -1,0 +1,8 @@
+(defun sumAtoms (l)
+    (cond
+        ((null l) 0)
+        ((numberp (car l)) (+ (car l) (sumAtoms (cdr l))))
+        ((atom (car l)) (sumAtoms (cdr l)))
+        ((listp (car l)) (+ (sumAtoms (car l)) (sumAtoms (cdr l))))
+    )
+)

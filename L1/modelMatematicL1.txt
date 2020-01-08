@@ -1,0 +1,32 @@
+8.
+a) Write a function to return the difference of two sets.
+b) Write a function to reverse a list with its all sublists, on all levels.
+c) Write a function to return the list of the first elements of all list elements of a given list with an odd
+number of elements at superficial level. Example:
+ (1 2 (3 (4 5) (6 7)) 8 (9 10 11)) => (1 3 9).
+d) Write a function to return the sum of all numerical atoms in a list at superficial level
+
+a)
+member(elem,l1..ln)=false,l=[]
+                    true,elem=l1
+                    member(elem,l2..ln),otherwise
+diff(l1..ln,s1..sm):-diff(l2..ln,s1..sm) ,member(l1,s)
+		    -[],l=[]
+		    -l1Udiff(l2..ln,s1..sm),otherwise
+b)b) Write a function to reverse a list with its all sublists, on all levels.
+reverse(l1..ln):-[],l=[]
+		-reverse(l2..ln)Ureverse(l1),l1 is list
+		-reverse(l2..ln)Ul1, otherwise
+
+c)c) Write a function to return the list of the first elements of all list elements of a given list with an odd
+number of elements at superficial level. Example:
+ (1 2 (3 (4 5) (6 7)) 8 (9 10 11)) => (1 3 9).
+getFirstElement(l1..ln):-l1
+
+firstElements(l1..ln)-[],l=0
+		  - firstElements(l1)UfirstElements(l2..ln),l1 is list, l%2!=0
+		  -firstElements(l2..ln),otherwise
+d)d) Write a function to return the sum of all numerical atoms in a list at superficial level.
+sumAtoms(l1..ln)-0,l=[]
+		-l1+sumAtoms(l1..ln),l1 is atom
+		-sumAtoms(l1)+sumAtoms(l2..ln),otherwise

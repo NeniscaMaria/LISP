@@ -1,0 +1,6 @@
+(defun my_substitute (l e r) ; e = element and r=the list to replace e
+    (cond
+        ((and (numberp l) (if (= l e) r l)))
+        ((listp l) (mapcar #'(lambda (a) (_replace a e r)) l))
+    )
+)
